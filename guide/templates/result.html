@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #4CAF50;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .cta-btn {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin: 1.5rem auto 0 auto; /* Center button horizontally */
+            transition: background-color 0.3s;
+            width: fit-content; /* Adjust button size to fit content */
+        }
+
+        .cta-btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Farmer Assistant</div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Recommended Crop</h2>
+        <p>The recommended crop for the given conditions is: <strong>{{ crop }}</strong></p>
+        <br>
+
+        <a href="{{ url_for('crop_recommendation') }}" class="cta-btn">Predict Again</a>
+    </div>
+</body>
+</html>

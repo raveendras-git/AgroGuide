@@ -1,0 +1,59 @@
+/* Reset some default styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2ecc71; /* Green background */
+    color: #333;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.card {
+    background-color: #ffffff; /* White background for card */
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow for card effect */
+    padding: 30px;
+    text-align: center; /* Center text inside the card */
+    max-width: 500px; /* Limit the width of the card */
+    width: 90%; /* Responsive width */
+}
+
+h1 {
+    margin-top: 0; /* Remove margin from the top */
+    color: #2c3e50;
+}
+
+h2 {
+    color: #2980b9;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    margin: 20px auto; /* Center the image */
+    border-radius: 4px;
+    border: 2px solid #2980b9; /* Optional: add a border around the image */
+    max-width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+a {
+    display: inline-block;
+    background-color: #2980b9; /* Button color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #1a5d82; /* Darken the background color on hover */
+}

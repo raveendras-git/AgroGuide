@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AgroGuide</div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Crop Recommendation System</h2>
+        <form action="/predict" method="POST">
+            <div class="input-group">
+                <label for="N">Nitrogen (N):</label>
+                <input type="number" step="any" name="N" required placeholder="0 to 150">
+            </div>
+            <div class="input-group">
+                <label for="P">Phosphorus (P):</label>
+                <input type="number" step="any" name="P" required placeholder="5 to 150">
+            </div>
+            <div class="input-group">
+                <label for="K">Potassium (K):</label>
+                <input type="number" step="any" name="K" required placeholder="5 to 210">
+            </div>
+            <div class="input-group">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" step="any" name="temperature" required placeholder="7 to 50">
+            </div>
+            <div class="input-group">
+                <label for="humidity">Humidity (%):</label>
+                <input type="number" step="any" name="humidity" required placeholder="14 to 100">
+            </div>
+            <div class="input-group">
+                <label for="ph">pH:</label>
+                <input type="number" step="any" name="ph" required placeholder="3.5 to 10">
+            </div>
+            <div class="input-group">
+                <label for="rainfall">Rainfall (mm):</label>
+                <input type="number" step="any" name="rainfall" required placeholder="20 to 300">
+            </div>
+            <button type="submit">Predict Crop</button>
+        </form>
+    </div>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>AgroGuide is dedicated to empowering farmers with the tools and knowledge they need to optimize their farming practices. Our app combines cutting-edge technology with practical agricultural insights to help farmers achieve better yields and healthier crops.</p>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or need support? Reach out to us!</p>
+        <form class="f2">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 AgroGuide. All rights reserved.</p>
+    </footer>
+</body>
+</html>

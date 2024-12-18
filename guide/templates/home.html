@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroGuide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+    .profile-menu {
+        position: relative;
+        display: inline-block;
+    }
+
+    .profile-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .profile-content span {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .profile-content p {
+        margin: 5px 0;
+        color: #555;
+    }
+
+    .profile-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .profile-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .profile-menu:hover .profile-content {
+        display: block;
+    }
+
+    .weather-card {
+        background: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    #weather-info {
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AgroGuide</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+                {% if session.get('user_id') %}
+                    <li class="profile-menu">
+                        <a href="javascript:void(0)">Profile</a>
+                        <div class="profile-content">
+                            <div style="text-align: center;">
+                                <span>{{ session['name'][0] }}</span>
+                                <p>{{ session['name'] }}</p>
+                                <p>Logged in at: {{ session['login_time'] }}</p>
+                                <a href="{{ url_for('logout') }}">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('signup')}}" class="signup-btn">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to AgroGuide</h1>
+            <p>Your smart companion for efficient and effective farming.</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Main Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Crop Recommendations</h3>
+                <p>Discover the perfect crops for your farm with our intelligent Crop Recommendation System. By analyzing soil and weather conditions, our tool helps you choose the best crops to grow, ensuring optimal yield and resource efficiency.</p>
+                <a href="{{ url_for('crop_recommendation') }}" class="cta-btn">Get Started</a>
+            </div>
+            <div class="card">
+                <h3>Disease Identification</h3>
+                <p>Identify crop diseases early with our AI-powered image recognition technology.</p><br><br>
+                <a href="{{ url_for('plant_disease') }}" class="cta-btn">Get Started</a>
+            </div>
+
+            
+            <div class="wcard">
+                <h3>Weather</h3>
+                <input type="text" id="city-input" step="any" placeholder="Enter city name">
+                <button id="city-input-btn" onclick="weatherFn($('#city-input').val())">Get Weather</button>
+                <div id="weather-info" class="animate__animated animate__fadeIn">
+                    <h3 id="city-name"></h3>
+                    <p id="date"></p>
+                    <img id="weather-icon" src="" alt="Weather Icon">
+                    <p id="temperature"></p>
+                    <p id="description"></p>
+                    <p id="wind-speed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>AgroGuide is dedicated to empowering farmers with the tools and knowledge they need to optimize their farming practices.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AgroGuide. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="{{ url_for('static', filename='js/wscript.js') }}"></script>
+
+</body>
+</html>
