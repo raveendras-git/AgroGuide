@@ -1,0 +1,19 @@
+Flask==2.1.0
+numpy==1.22.0
+pandas==1.4.0
+scikit-learn==1.0.2
+opencv-python==4.5.5.64
+torch==1.11.0
+torchvision==0.12.0
+Pillow==9.0.0
+matplotlib==3.5.1
+joblib==1.1.0
+
+# Python Version
+# This project requires Python 3.12.7
+python_version==3.12.7
+
+
+# Datasets (not included due to file size):
+# Crop Recommendation Dataset: https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset
+# Plant Disease Images Dataset: https://www.kaggle.com/datasets/emmarex/plantdisease
