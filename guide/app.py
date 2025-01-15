@@ -16,10 +16,9 @@ app.secret_key = 'chin tapak dum dum'
 
 # Load the trained model for plant disease identification
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-model = load_model('C:/Users/Ravin/Desktop/guide/models/best_model.pth')  # Load your trained ResNet18 model here
+model = load_model('model.pth')  # Load your trained ResNet18 model here
 model.eval()
 
-# Image transformations (resize to 224x224 for ResNet)
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -41,9 +40,9 @@ classnames = [
 ]
 
 # Define the correct paths for model and scaler files for crop recommendation
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'C:/Users/Ravin/Desktop/guide/models/GBmodel.pkl')
-SCALER_PATH = os.path.join(os.path.dirname(__file__), 'C:/Users/Ravin/Desktop/guide/models/scaler.pkl')
-LE_PATH = os.path.join(os.path.dirname(__file__), 'C:/Users/Ravin/Desktop/guide/models/label_encoder.pkl')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'GBmodel.pkl')
+SCALER_PATH = os.path.join(os.path.dirname(__file__), 'scaler.pkl')
+LE_PATH = os.path.join(os.path.dirname(__file__), 'label_encoder.pkl')
 
 # Load the Gradient Boosting model for crop recommendation
 gb_model = pickle.load(open(MODEL_PATH, 'rb'))
@@ -52,8 +51,8 @@ le = pickle.load(open(LE_PATH, 'rb'))
 
 # MySQL connection configuration
 db_config = {
-    'user': 'root',
-    'password': 'r@vi2210',
+    'user': 'user',
+    'password': 'password',
     'host': '127.0.0.1',
     'database': 'login'
 }
